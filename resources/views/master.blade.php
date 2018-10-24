@@ -12,7 +12,7 @@
     </head>
     <body>
         <nav class=" text-white navbar navbar-expand-lg navbar-light bg-dark">
-      <a class="navbar-brand text-light" href="{{route('games.index')}}">Navbar</a> <!-- do zmiany link do home -->
+      <a class="navbar-brand text-light" href="{{route('home')}}">Navbar</a> <!-- do zmiany link do home -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -34,11 +34,16 @@
             </div>
           </li>
         </ul>
-        <ul class="navbar-nav"> 
-          <li class="nav-item">
-            <a class="nav-link text-light" href="#">Login</a>
-          </li>
-        </ul>
+        @auth
+        <form class="form-inline my-2 my-lg-0" method="post" action="{{route('logout')}}">
+          @csrf
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+        </form>
+        @else
+        <a class="btn btn-outline-primary my-2 my-sm-0" href="{{route('login')}}">Login<a>
+        <a class="btn btn-outline-primary ml-2 my-2 my-sm-0" href="{{ route('register') }}">Register</a>
+
+        @endauth
       </div>
     </nav>
   	<div class="container">
