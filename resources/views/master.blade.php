@@ -27,7 +27,9 @@
               Games
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              @if(Auth::check() && Auth::user()->admin)
               <a class="dropdown-item" href="{{route('games.create')}}">Create</a>
+              @endif
               <a class="dropdown-item" href="{{route('games.index')}}">Show</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Something else here</a>

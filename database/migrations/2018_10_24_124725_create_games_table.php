@@ -17,6 +17,9 @@ class CreateGamesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('description');
+            $table->integer('user_id')->index()->unsigned()->default(0);
+            $table->boolean('active')->default(True);
+
             $table->timestamps();
         });
     }

@@ -1,5 +1,6 @@
 @extends('master')
   @section('content')
+  @if(Auth::check() && Auth::user()->admin)
     <h1>Update the game</h1>
     @if($errors->all())
       <div class="alert alert-danger">
@@ -31,4 +32,7 @@
         <button type="submit" class="btn btn-outline-primary">Update the game</button>
       </div>
     </form>
+    @else
+      <h1>You havent got Admin rights! Call for Admin</h1>
+    @endif
   @endsection

@@ -1,5 +1,8 @@
+
 @extends('master')
+
   @section('content')
+  @if(Auth::check() && Auth::user()->admin)
     <h1>Add a game</h1>
     @if($errors->all())
       <div class="alert alert-danger">
@@ -8,12 +11,8 @@
         @endforeach
       </div>
     @endif
-    @if(session()->has('message'))
-      <div class="alert alert-success">
-        {{session()->get('message')}}
-        
-      </div>
-    @endif    <form action="{{route('games.store')}}" method="post">
+
+    <form action="{{route('games.store')}}" method="post">
       @csrf
       <div class="form-group">
         <label for="title">Title</label>
@@ -29,4 +28,9 @@
         <button type="submit" class="btn btn-outline-primary">Add a game</button>
       </div>
     </form>
+      @else
+      <h1>Wrong number.</h1>
+
+  @endif 
   @endsection
+

@@ -28,6 +28,7 @@ class GameController extends Controller
      */
     public function create()
     {
+        
         return view('games.create');
     }
 
@@ -97,7 +98,10 @@ class GameController extends Controller
      */
     public function destroy(Game $game)
     {
-        $game->delete();
+        // not exactly deleting records, just turning them off.
+        $game->active = 0;
+        $game->save();
+        //$game->delete(); /* i avoid deleting records, because database will go crazy. But if u want you can uncomment it and comment upper one.*/
         return redirect(route('games.index'));
     }
 }
