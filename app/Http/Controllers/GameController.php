@@ -17,7 +17,7 @@ class GameController extends Controller
      */
     public function index()
     {
-        $games = Game::orderBy('id', 'description')->paginate(5);
+        $games = Game::orderBy('id', 'description')->paginate(100);
         return view('games.index', ['games' => $games]);
     }
 
@@ -119,8 +119,11 @@ class GameController extends Controller
         // ..
     }
 
-    public function gameAdd(){
-        //...
+    public function borrow(Game $game){    
+        $id = Auth::user()->getId();
+        $game->user_id = $id;
+        $game->save();
+        return redirect(route('games.pub'));
     }
 
 

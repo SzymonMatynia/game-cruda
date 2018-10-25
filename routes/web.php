@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 
 Route::get('/games/pub', 'GameController@pub')->name('games.pub');
+Route::put('/games/pub/{game}', 'GameController@borrow')->name('games.borrow');
 Route::resource('games', 'GameController');
 Auth::routes();
 
