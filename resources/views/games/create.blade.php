@@ -29,7 +29,8 @@
       </div>
     </form>
       @else
-      <h1>Wrong number.</h1>
+      <h1>That's the wrong Number ( ͡° ͜ʖ ͡°)</h1>
+      <p>If you see this, you shouldn't be here</p>
 
   @endif 
   @endsection

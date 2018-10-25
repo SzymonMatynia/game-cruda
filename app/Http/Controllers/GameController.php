@@ -18,6 +18,7 @@ class GameController extends Controller
     public function index()
     {
         $games = Game::orderBy('id', 'description')->paginate(100);
+        //$games = Game::orderBy('id', 'description')->paginate(5); // for normal flow
         return view('games.index', ['games' => $games]);
     }
 
@@ -99,10 +100,10 @@ class GameController extends Controller
      */
     public function destroy(Game $game)
     {
-        // not exactly deleting records, just turning them off.
+        // We not exactly delete records, we just turning them off
         $game->active = 0;
         $game->save();
-        //$game->delete(); /* i avoid deleting records, because database will go crazy. But if u want you can uncomment it and comment upper one.*/
+        //$game->delete(); // Should we avoid deleting records in database?
         return redirect(route('games.index'));
     }
 

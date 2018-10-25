@@ -3,17 +3,13 @@
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+            <div class="card mt-2 mb-2">
+                <div class="card-header">
+                    <h1>Hello everybody, that is Game-Rental blog!</h1>
+                </div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
+                    <p>Example post</p> <!-- another crud for posts -->
                 </div>
             </div>
         </div>

@@ -4,15 +4,19 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta name="description" content="Free games library">
+    <meta name="keywords" content="Games, free, Heroes3, CS:GO, LoL, AoE, legal, notpiratebay">
+    <meta name="author" content="Eterxoz">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-      <title>Hello, world!</title>
+      <title>Wypożyczalnia gierek</title>
     </head>
     <body>
         <nav class=" text-white navbar navbar-expand-lg navbar-light bg-dark">
-      <a class="navbar-brand text-light" href="{{route('home')}}">Navbar</a> <!-- do zmiany link do home -->
+      <a class="navbar-brand text-light" href="{{url('/')}}">Game-Rental</a> <!-- do zmiany link do home -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -20,7 +24,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link text-light" href="{{route('home')}}">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -28,12 +32,12 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               @if(Auth::check() && Auth::user()->admin)
-              <a class="dropdown-item" href="{{route('games.create')}}">Create</a>
+              <a class="dropdown-item" href="{{route('games.create')}}">Add a game</a>
               @endif
-              <a class="dropdown-item" href="{{route('games.index')}}">Show</a>
+              <a class="dropdown-item" href="{{route('games.index')}}">Show games</a>
               @auth
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{route('games.pub')}}">My games</a>
+              <a class="dropdown-item" href="{{route('games.pub')}}">My games  library</a>
               @endauth
             </div>
           </li>
@@ -41,6 +45,12 @@
         @auth
         <form class="form-inline my-2 my-lg-0" method="post" action="{{route('logout')}}">
           @csrf
+          <div class="mr-2">
+            Logged as
+            @if(Auth::user()->admin)
+              Admin
+            @endif: {{Auth::user()->email}}
+          </div>
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
         </form>
         @else
