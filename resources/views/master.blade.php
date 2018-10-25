@@ -31,8 +31,10 @@
               <a class="dropdown-item" href="{{route('games.create')}}">Create</a>
               @endif
               <a class="dropdown-item" href="{{route('games.index')}}">Show</a>
+              @auth
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="{{route('games.pub')}}">My games</a>
+              @endauth
             </div>
           </li>
         </ul>

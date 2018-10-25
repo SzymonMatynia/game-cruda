@@ -15,7 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/games/pub', 'GameController@pub')->name('games.pub');
 Route::resource('games', 'GameController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+

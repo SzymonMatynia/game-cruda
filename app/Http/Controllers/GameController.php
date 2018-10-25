@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Game;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
+use Auth;
 class GameController extends Controller
 {
     public function __construct(){
@@ -21,6 +21,7 @@ class GameController extends Controller
         return view('games.index', ['games' => $games]);
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -104,4 +105,23 @@ class GameController extends Controller
         //$game->delete(); /* i avoid deleting records, because database will go crazy. But if u want you can uncomment it and comment upper one.*/
         return redirect(route('games.index'));
     }
+
+
+    
+    public function pub(Game $game)
+    {
+        $id = Auth::user()->getId();
+        $games = Game::All()->where('user_id', '=', $id);
+        return view('games.pub', ['games' => $games]);
+    }
+
+    public function gameDelete{
+        // ..
+    }
+
+    public function gameAdd{
+        //...
+    }
+
+
 }

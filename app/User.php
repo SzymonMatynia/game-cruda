@@ -28,11 +28,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     
-    public function roles() {
-        return $this->belongsToMany(Role::class, 'user_role');
-    }
-    
-    public function isAdministrator() {
-       return $this->roles()->where('name', 'Administrator')->exists();
+    public function getId()
+    {
+      return $this->id;
     }
 }

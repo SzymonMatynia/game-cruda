@@ -20,12 +20,14 @@ class CreateGamesTable extends Migration
             $table->integer('user_id')->index()->unsigned()->default(0);
             $table->boolean('active')->default(True);
 
+            //$table->foreign('user_id')->references('id')->on('users');
+
             $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrations
      *
      * @return void
      */
