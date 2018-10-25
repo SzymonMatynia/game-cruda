@@ -115,11 +115,11 @@ class GameController extends Controller
         return view('games.pub', ['games' => $games]);
     }
 
-    public function gameDelete{
+    public function gameDelete(){
         // ..
     }
 
-    public function gameAdd{
+    public function gameAdd(){
         //...
     }
 
