@@ -16,7 +16,7 @@
       @csrf
       <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" placeholder="Game title" required name="title" id="title" class="form-control">
+        <input type="text" placeholder="Game title" maxlength="32" required name="title" id="title" class="form-control">
       </div>
 
       <div class="form-group">

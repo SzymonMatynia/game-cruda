@@ -8,6 +8,12 @@
           </div>
           <div class="card-body">
             <p>{{$game->description}}</p>
+              
+              <form onsubmit="return confirm('Are you sure you want return it?')" class="d-inline-block float-right" method="post" action="{{route('games.back', $game->id)}}">
+                @csrf
+                @method('put')
+                <button type="submit" class="btn btn-outline-primary">Return</button>
+              </form>
           </div>
 
           

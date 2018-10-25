@@ -115,16 +115,20 @@ class GameController extends Controller
         return view('games.pub', ['games' => $games]);
     }
 
-    public function gameDelete(){
-        // ..
+    public function back(Game $game){
+        $game->user_id = 0;
+        $game->save();
+        return redirect(route('games.index'));
     }
+
+
 
     public function borrow(Game $game){    
         $id = Auth::user()->getId();
         $game->user_id = $id;
         $game->save();
         return redirect(route('games.pub'));
-    }
+    } 
 
 
 }
