@@ -1,7 +1,7 @@
-## About project
 <h1>Game-Cruda</h1>
-<p>Simple crud based site. You can add/delete/borrow/return/edit games. borrowing and returning is only possible if you are a registered user. Admin rights included</p>
 
+<p>Simple crud based site. You can add/delete/borrow/return/edit games. borrowing and returning is only possible if you are a registered user. Admin rights included</p>
+<br><hr><br>
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
