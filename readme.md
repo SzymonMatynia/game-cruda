@@ -1,8 +1,8 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 ## About project
 <h1>Game-Cruda</h1>
-<p>ss</p>
+<p>Simple crud based site. You can add/delete/borrow/return/edit games. borrowing and returning is only possible if you are a registered user. Admin rights included</p>
 
+<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
